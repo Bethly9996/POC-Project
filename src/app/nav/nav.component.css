@@ -1,0 +1,13 @@
+#nav {
+  margin-top: 0px;
+  display: flex;
+}
+.active {
+  background-color: #dcdcdc;
+}
+
+#logoutLblPos {
+  position: fixed;
+  right: 10px;
+  top: 5px;
+}

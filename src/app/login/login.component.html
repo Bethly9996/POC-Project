@@ -1,0 +1,73 @@
+<header id="home">
+  <nav class="navbar bg-light" id="nav">
+    <a class="navbar-brand" href="#">
+      <img
+        src="https://talk.openmrs.org/uploads/default/original/2X/8/80fd6086dca0a3a38f9d3b81fdf48196e1fe307f.png"
+        alt=""
+        width="50"
+        height="40"
+      />
+    </a>
+    <div class="container-fluid" id="fluid">
+      <div class="navbar-header"></div>
+      <ul class="nav navbar-nav">
+        <li
+          [routerLinkActive]="'active'"
+          [routerLinkActiveOptions]="{ exact: true }"
+        >
+          <a routerLink="" class="route">Home</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="col-sm-15 form-group">
+    <div class="col-sm-15">
+      <img
+        src="https://talk.openmrs.org/uploads/default/original/2X/8/80fd6086dca0a3a38f9d3b81fdf48196e1fe307f.png"
+        alt=""
+        width="200"
+        height="180"
+        style="margin: auto; display: block"
+      />
+    </div>
+    <div class="login">
+      <div>
+        <div>
+          <h6>Welcome to OpenMRS.Please login to proceed</h6>
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="username">Username:</label>
+              <input
+                [(ngModel)]="username"
+                name="username"
+                type="text"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="pwd">Password:</label>
+              <input
+                [(ngModel)]="password"
+                name="password"
+                type="password"
+                class="form-control"
+                id="pwd"
+              />
+            </div>
+            <div class="checkbox">
+              <label><input type="checkbox" /> Remember me</label>
+            </div>
+            <button
+              (click)="isLoggedIn()"
+              type="submit"
+              class="btn btn-success float-right"
+            >
+              Login
+            </button>
+          </form>
+          <a href="#">I forgot my password</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

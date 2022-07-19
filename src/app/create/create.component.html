@@ -1,0 +1,165 @@
+<div>
+  <div>
+    <h3><b>Patient Search</b></h3>
+  </div>
+  <div id="search">
+    <div id="box">
+      <b class="boxHeader">Find Patient(s)</b>
+    </div>
+    <form (submit)="onSubmit()" action="#" method="get">
+      <div class="identifier">
+        <table>
+          <tbody>
+            <tr>
+              <td><label for="">Patient Identifier or patient name:</label></td>
+              <td>
+                <input
+                  [(ngModel)]="searchTerm"
+                  type="search"
+                  id="input"
+                  name="search"
+                  placeholder="Search for names or id.."
+                  title="Type in a name"
+                  aria-label="Search"
+                />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <table class="table table-striped table-responsive table-hover">
+          <thead>
+            <tr>
+              <th scope="col">Identifier/Name</th>
+              <th scope="col">Age</th>
+              <th scope="col">Gender</th>
+              <th scope="col">Birthdate</th>
+              <th scope="col">Death Date</th>
+              <th scope="col">Test or Fake Patient</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let patient of results
+                  | paginate
+                    : {
+                        itemsPerPage: tableSize,
+                        currentPage: page,
+                        totalItems: count
+                      };
+                let i = index
+              " routerLink="[/patientinfo]"
+            >
+              <!-- <td><ul *ngFor="let identifier of patient.identifiers" >
+            <li>
+              {{identifier.display}}
+            </li>
+          </ul></td> -->
+              <!-- <td>{{patient.identifiers}}</td> -->
+              <td>{{ patient.display }}</td>
+              <td>{{ patient.person.age }}</td>
+              <td>{{ patient.person.gender }}</td>
+              <td>{{ patient.person.birthdate }}</td>
+              <td>{{ patient.person.deathDate }}</td>
+              <!-- <td>{{patient.attributes.display}}</td> -->
+            </tr>
+          </tbody>
+        </table>
+        <div>
+          <select (change)="onTableSizeChange($event)">
+            <option *ngFor="let size of tableSizes">
+              {{ size }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="hr-line-dashed"></div>
+
+  <!-- paginatiion -->
+
+  <div>
+    <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)"
+    ></pagination-controls>
+  </div>
+
+  <br />
+  &nbsp; or
+  <br />
+  <br />
+
+  <div id="search">
+    <div class="box">
+      <b class="boxHeader">Create Patient</b>
+    </div>
+    <div>
+      To create a new person, enter the person's name and other information
+      below first to double-check that they don't already have a record in the
+      system.
+    </div>
+
+    <div>
+      <form
+        method="get"
+        action="admin/person/addPerson.htm"
+        onsubmit="return validateForm()"
+      >
+        <table>
+          <tbody>
+            <tr>
+              <td>
+                <label for="name"
+                  >Person name:<span class="required">*</span></label
+                >
+              </td>
+              <td>
+                <input
+                  aria-describedby="required-description"
+                  id="name"
+                  type="text"
+                />
+              </td>
+            </tr>
+            <br />
+            <tr>
+              <td>
+                <label for="">Birthdate:<span class="required">*</span></label>
+              </td>
+              <td valign="top">
+                <input aria-describedby="required-description" type="date" />
+                or Age
+                <input aria-describedby="required-description" type="number" />
+              </td>
+            </tr>
+            <br />
+            <tr>
+              <td>
+                <label for="name">Gender:<span class="required">*</span></label>
+              </td>
+              <td>
+                <input type="radio" name="gender" value="male" /> Male
+                <input type="radio" name="gender" value="female" /> Female
+              </td>
+            </tr>
+            <br />
+            <tr>
+              <td></td>
+              <td>
+                <input type="submit" value="Create Person" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <input type="hidden" name="personType" value="patient" />
+        <input type="hidden" name="viewType" value="shortEdit" />
+      </form>
+    </div>
+  </div>
+</div>
+
