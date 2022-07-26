@@ -6,8 +6,8 @@
   background-color: #dcdcdc;
 }
 
-#logoutLblPos {
-  position: fixed;
+/* #logoutLblPos {
+  position: absolute;
   right: 10px;
   top: 5px;
-}
+} */

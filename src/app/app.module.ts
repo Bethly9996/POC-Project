@@ -18,17 +18,17 @@ import { CookieService } from 'ngx-cookie-service';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PatientinfoComponent } from './create/patientinfo/patientinfo.component';
 import { EncountersComponent } from './create/encounters/encounters.component';
+// import { CreateModule } from './create/create.module';
 
 const appRoute: Routes = [
-  { path: '', component: LoginComponent },
-  // {path:'', redirectTo:'Home', pathMatch:'full'},
+  // { path: '', component: LoginComponent },
+  { path: '', redirectTo: 'find', pathMatch: 'full' },
+
   { path: 'Home', component: HomeComponent },
   { path: 'Find', component: CreateComponent },
-  { path: 'patientinfo', component: PatientinfoComponent },
-  
-
-
-  
+  { path: 'PatientInfo', component: PatientinfoComponent },
+  // { path: 'Cohort', component: BuilderComponent },
+  // { path: 'Administration', component: AdminComponent },
 ];
 
 @NgModule({
@@ -43,7 +43,6 @@ const appRoute: Routes = [
     BuilderComponent,
     PatientinfoComponent,
     EncountersComponent,
-    
   ],
   imports: [
     BrowserModule,
@@ -53,7 +52,8 @@ const appRoute: Routes = [
     ReactiveFormsModule,
     NgxPaginationModule,
     CommonModule,
-    RouterModule.forRoot(appRoute),
+
+    // RouterModule.forRoot(appRoute),
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

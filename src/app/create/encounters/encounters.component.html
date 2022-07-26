@@ -1,1 +1,76 @@
-<p>encounters works!</p>
+<div>
+  <div style="background-color:  #006666; padding: 15px;">
+    <h2 style="color: white;">Encounters</h2>
+  </div>
+  <hr />
+  <div>
+    <h2>Patient Encounters</h2>
+  </div>
+  <hr />
+</div>
+<div>
+  <div class="form-group">
+    <label class="control-label">Filter by Encounter Types</label>
+    <select class="form-control" style="width: 350px;">
+      <option value="">All</option>
+      
+      <option value="ADULTINITIAL">
+        ADULTINITIAL
+      </option>
+      <option value="ADULTRETURN">ADULTRETURN</option>
+      <option value="BIGPICADULTRETURN">
+        BIGPICADULTRETURN
+      </option>
+      <option value="CDMTRIAGE">CDMTRIAGE</option>
+      <option value="COVIDSCREENING">
+        COVIDSCREENING
+      </option>
+      <option value="DERMATOLOGYREFERRAL">
+        DERMATOLOGYREFERRAL
+      </option>
+      <option value="DERMRESPONSE">
+        DERMRESPONSE
+      </option>
+      <option value="DRUGPICKUP">DRUGPICKUP</option>
+      <option value="EXITFORM">EXITFORM</option>
+      <option value="Family and Partner Testing" >
+        Family and Partner Testing
+      </option>
+      <option value="HIVTRIAGE" >HIVTRIAGE</option>
+      <option value="INTERNALMOVEMENT">
+        INTERNALMOVEMENT
+      </option>
+      <option value="POCLAB">POCLAB</option>
+      <option value="YOUTHINITIAL">
+        YOUTHINITIAL
+      </option>
+      <option value="YOUTHRETURN">YOUTHRETURN</option>
+    </select>
+  </div>
+  <br>
+  <div>
+    <label class="control-label">Filter Items</label>
+  </div>
+  <br>
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Encounter Date</th>
+        <th scope="col">Encounter Type</th>
+        <th scope="col">Form</th>
+        <th scope="col">Provider</th>
+        <th scope="col">Provider Location</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let encounter of encounter">
+        <td>{{encounter.diagnoses}}</td>
+        <td>{{encounter.encounterType}}</td>
+        <td>{{encounter.form}}</td>
+        <td>{{encounter.encounterProviders}}</td>
+        <td>{{encounter.location}}</td>
+      </tr>
+     
+    </tbody>
+  </table>
+</div>

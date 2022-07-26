@@ -5,5 +5,13 @@
     display: flex;
     margin-bottom: 0px;
 }
+#logoutLblPos {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    font-size: large;
+    padding: 10px;
+    margin:auto;
+  }
 
 

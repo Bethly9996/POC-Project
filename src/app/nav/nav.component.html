@@ -9,18 +9,18 @@
         <a routerLink="">Home</a>
       </li>
       <li [routerLinkActive]="'active'">
-        <a [routerLink]="'Find'">Find/Create Patient</a>
+        <a routerLink = "/Find">Find/Create Patient</a>
+      </li>
+      <!-- <li [routerLinkActive]="'active'">
+        <a [routerLink]="'PatientInfo'">PatientInfo</a>
+      </li> -->
+      <li [routerLinkActive]="'active'">
+        <a routerLink="/Cohort">Cohort Builder</a>
       </li>
       <li [routerLinkActive]="'active'">
-        <a [routerLink]="'Dictionary'">Dictionary</a>
+        <a routerLink="/Administration">Administration</a>
       </li>
-      <li [routerLinkActive]="'active'">
-        <a [routerLink]="'Cohort'">Cohort Builder</a>
-      </li>
-      <li [routerLinkActive]="'active'">
-        <a [routerLink]="'Administration'">Administration</a>
-      </li>
-      <li class="nav-item" style="float: right" id="logoutLblPos">
+      <!-- <li class="nav-item" style="float: right" id="logoutLblPos">
         <a
           class="nav-link p-3"
           href=""
@@ -28,7 +28,7 @@
           (click)="isLoggedOut()"
           >Logout</a
         >
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
